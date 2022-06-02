@@ -1,5 +1,6 @@
 package com.spring.api.service;
 
+import ch.qos.logback.core.net.SyslogOutputStream;
 import com.spring.api.dto.UserRequest;
 import com.spring.api.entity.User;
 import com.spring.api.exception.UserNotFoundException;
@@ -20,16 +21,16 @@ public class UserService {
         return userRepo.save(user);
     }
 
-    public List<User> getAllUser(){
+    public List<User> getAllUser() {
         return userRepo.findAll();
     }
 
     public User getUser(int userId) throws UserNotFoundException {
         Optional<User> userOptional = userRepo.findById(userId);
-        if(userOptional.isPresent()){
+        if (userOptional.isPresent()) {
             return userOptional.get();
         }
-        throw new UserNotFoundException("user not found with id : "+userId);
+        throw new UserNotFoundException("user not found with id : " + userId);
 
     }
 }

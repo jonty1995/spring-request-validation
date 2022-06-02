@@ -10,7 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Table(name="USERS_TBL")
+@Table(name = "USERS_TBL")
 @Entity
 @Data
 @AllArgsConstructor(staticName = "build")
